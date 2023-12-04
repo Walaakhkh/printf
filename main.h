@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdarg.h>
-#include <unstd.h>
+#include <unistd.h>
 
 #define OUT_BUFF_SIZE 1024
 #define BUFF_FLSH -1
@@ -14,29 +14,6 @@
 
 #define CONVERT_LOWERCASE  1
 #define CONVERT_UPPERCASE  2
-
-int _puts(char *str);
-int _putchar(char c);
-
-int _printf(const char *format, ...);
-int print_char(va_list li, proj_t *proj);
-int print_string(va_list li, proj_t *proj);
-int print_percent(va_list li, proj_t *proj);
-
-int print_int(va_list li, proj_t *proj);
-
-int print_binary(va_list li, proj_t *proj);
-
-int print_unsigned(va_list li, proj_t *proj);
-int print_octal(va_list li, proj_t *proj);
-int print_hex(va_list li, proj_t *proj);
-int print_HEX(va_list li, proj_t *proj);
-
-int print_S(va_list li, proj_t *proj);
-
-int print_address(va_list li, proj_t *proj);
-
-char *convert(long int num, int base, int flags, proj_t *proj);
 
 #define PROJ_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
@@ -89,6 +66,29 @@ typedef struct specifier
 	char *specifier;
 	int (*F)(va_list, proj_t *);
 } specifier_t;
+
+int _puts(char *str);
+int _putchar(char c);
+
+int _printf(const char *format, ...);
+int print_char(va_list li, proj_t *proj);
+int print_string(va_list li, proj_t *proj);
+int print_percent(va_list li, proj_t *proj);
+
+int print_int(va_list li, proj_t *proj);
+
+int print_binary(va_list li, proj_t *proj);
+
+int print_unsigned(va_list li, proj_t *proj);
+int print_octal(va_list li, proj_t *proj);
+int print_hex(va_list li, proj_t *proj);
+int print_HEX(va_list li, proj_t *proj);
+
+int print_S(va_list li, proj_t *proj);
+
+int print_address(va_list li, proj_t *proj);
+
+char *convert(long int num, int base, int flags, proj_t *proj);
 
 int (*get_specifier(char *s))(va_list li, proj_t *proj);
 int get_print_func(char *s, va_list li, proj_t *proj);
