@@ -16,22 +16,23 @@ int _puts(char *str)
 }
 
 /**
- * _putchar - write character c to stdout
- * @c: character to be printed
- * Return: 1 when success, -1 when fail
+ * _putchar - write characters c to stdout
+ * @c: character to print
+ *
+ * Return: 1 when success, -1 when error
  */
 
-int _putchar(char c)
+int _putchar(int c)
 {
-	static int x;
-	static char b[OUT_BUFF_SIZE];
+	static int i;
+	static char buffer[OUT_BUFF_SIZE];
 
-	if (c == BUFF_FLSH || x >= OUT_BUFF_SIZE)
+	while (c == BUFF_FLSH || i >= OUT_BUFF_SIZE)
 	{
-		write(1, b, x);
-		x = 0;
+		write(1, buffer, i);
+			i = 0;
 	}
 	while (c != BUFF_FLSH)
-		b[x++] = c;
+		buffer[i++] = c;
 	return (1);
 }
