@@ -13,7 +13,7 @@
 #define NULL_STRING "(null)"
 
 #define CONVERT_LOWERCASE  1
-#define CONVERT_UPPERCASE  2
+#define CONVERT_UNSIGNED  2
 
 #define PROJ_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
@@ -67,7 +67,7 @@ typedef struct specifier
 int _puts(char *str);
 int _putchar(int c);
 
-/* functions.c modules */
+/* functions1.c modules */
 int print_char(va_list li, proj_t *proj);
 int print_string(va_list li, proj_t *proj);
 int print_percent(va_list li, proj_t *proj);
@@ -91,10 +91,10 @@ int get_flag(char *s, proj_t *proj);
 int get_modifier(char *s, proj_t *proj);
 char *get_width(char *s, proj_t *proj, va_list li);
 
-
+/* functions.c modules */
 int print_rev(va_list li, proj_t *proj);
 int print_rot13(va_list li, proj_t *proj);
-int print_from_to(char *begin, char *end, char *except);
+int print_from_to(char *start, char *stop, char *except);
 
 int _isdigit(int c);
 int _strlen(char *s);

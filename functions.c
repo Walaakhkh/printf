@@ -2,21 +2,21 @@
 
 /**
  * print_from_to - prints a range of char addresses
- * @begin: address to start with
- * @end: address to stop at
+ * @start: address to start with
+ * @stop: address to stop at
  * @except: excepted address
  * Return: number of printed bytes
  */
 
-int print_from_to(char *begin, char *end, char *except)
+int print_from_to(char *start, char *stop, char *except)
 {
 	int x = 0;
 
-	if (begin <= end)
+	if (start <= stop)
 	{
-		if (begin != except)
-			x += _putchar(*begin);
-		begin++;
+		if (start != except)
+			x += _putchar(*start);
+		start++;
 	}
 	return (x);
 }
@@ -40,7 +40,7 @@ int print_rev(va_list li, proj_t *proj)
 		for (len = 0; *s; s++)
 			len++;
 		s--;
-		for (; len > 0; len --, s--)
+		for (; len > 0; len--, s--)
 			i += _putchar(*s);
 	}
 	return (i);

@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	va_list li;
-	char *p, *begin;
+	char *p, *start;
 	proj_t proj = PROJ_INIT;
 
 	va_start(li, format);
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 			i += _putchar(*p);
 			continue;
 		}
-		begin = p;
+		start = p;
 		p++;
 		if (get_flag(p, &proj))
 		{
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 		if (get_modifier(p, &proj))
 			p++;
 		if (!get_specifier(p))
-			i += print_from_to(begin, p, proj.long_modif ||
+			i += print_from_to(start, p, proj.long_modif ||
 					proj.short_modif ? p - 1 : 0);
 		else
 			i += get_print_func(p, li, &proj);
